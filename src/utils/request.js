@@ -17,10 +17,10 @@ service.interceptors.request.use(
   config => {
     if (store.state.token) {
       // 让每个请求携带token-- ['X-Token']为自定义key 请根据实际情况自行修改
-      // console.log(store.getters.token);
-      config.headers["Authorization"] = store.state.token;
+      // config.headers["Authorization"] = store.state.token;
+      config.headers["Authorization"] = getToken();
     }
-    console.log(store.state.token);
+    console.log(getToken());
     return config;
   },
   error => {
